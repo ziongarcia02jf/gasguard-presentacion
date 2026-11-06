@@ -296,25 +296,55 @@ h2 {
 }
 .cierre .autores b { color: var(--text-primary); }
 
-/* ===== Fuentes ===== */
+/* ===== Fuentes: tira horizontal deslizable ===== */
 footer {
     border-top: 1px solid var(--border-color);
-    padding: 40px 0 60px;
+    padding: 30px 0 40px;
 }
 footer h4 {
     color: var(--text-secondary);
     font-size: 0.8rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
-footer ul { list-style: none; display: grid; gap: 8px; }
-footer a {
-    color: #64748b;
-    font-size: 0.88rem;
+.fuentes-strip {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+}
+.fuentes-strip::-webkit-scrollbar { height: 6px; }
+.fuentes-strip::-webkit-scrollbar-track { background: transparent; }
+.fuentes-strip::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 6px; }
+.fuente-card {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+.fuente-card .tipo {
+    display: block;
+    color: var(--accent);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+.fuente-card a {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    line-height: 1.45;
     text-decoration: none;
+    display: block;
 }
-footer a:hover { color: var(--accent); }
+.fuente-card a:hover { color: var(--accent); }
 
 /* ===== Reveal al scrollear ===== */
 .reveal {
@@ -523,16 +553,37 @@ footer a:hover { color: var(--accent); }
 <!-- ================= FUENTES ================= -->
 <footer>
     <div class="wrap">
-        <h4>Fuentes consultadas</h4>
-        <ul>
-            <li><a href="https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(23)00185-8/fulltext" target="_blank" rel="noopener">The Lancet Public Health — Mortalidad global por intoxicación con monóxido de carbono, 2000–2021 (GBD)</a></li>
-            <li><a href="https://www.argentina.gob.ar/salud/socioambiental/recomendaciones/monoxidodecarbono" target="_blank" rel="noopener">Ministerio de Salud de la Nación — Intoxicaciones por monóxido de carbono</a></li>
-            <li><a href="https://www.argentina.gob.ar/noticias/actualizacion-del-boletin-epidemiologico-nacional-de-la-semana-ndeg-28" target="_blank" rel="noopener">Boletín Epidemiológico Nacional — Vigilancia de intoxicaciones por CO</a></li>
-            <li><a href="https://es.wikipedia.org/wiki/Explosi%C3%B3n_de_Rosario_de_2013" target="_blank" rel="noopener">Explosión de Rosario de 2013 (Salta 2141) — 22 fallecidos</a></li>
-            <li><a href="https://www.lanacion.com.ar/seguridad/fuga-de-gas-explosion-y-muerte-un-adulto-mayor-fallecio-y-tres-personas-resultaron-gravemente-nid23022025/" target="_blank" rel="noopener">La Nación — Explosión en Boulogne, febrero de 2025</a></li>
-            <li><a href="http://www.diariolaopinion.com.ar/policiales/terrible-tragedia-en-villa-devoto-cinco-personas-de-una-misma-familia-murieron-por-un-escape-de-gas.htm" target="_blank" rel="noopener">Clarín / Noticias Argentinas — Tragedia en Villa Devoto, julio de 2025</a></li>
-            <li><a href="https://www.pilaradiario.com/policiales/les-instalaron-una-cocina-y-exploto-madre-e-hija-murieron-y-el-padre-esta-grave-n5453613" target="_blank" rel="noopener">El Diario de Pilar — Explosión por cocina con fuga, mayo de 2024</a></li>
-        </ul>
+        <h4>Fuentes consultadas — deslizá para ver todas →</h4>
+        <div class="fuentes-strip">
+            <div class="fuente-card">
+                <span class="tipo">Estudio científico</span>
+                <a href="https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(23)00185-8/fulltext" target="_blank" rel="noopener">The Lancet Public Health — Mortalidad global por intoxicación con monóxido de carbono, 2000–2021 (GBD)</a>
+            </div>
+            <div class="fuente-card">
+                <span class="tipo">Estado argentino</span>
+                <a href="https://www.argentina.gob.ar/salud/socioambiental/recomendaciones/monoxidodecarbono" target="_blank" rel="noopener">Ministerio de Salud de la Nación — Intoxicaciones por monóxido de carbono</a>
+            </div>
+            <div class="fuente-card">
+                <span class="tipo">Estado argentino</span>
+                <a href="https://www.argentina.gob.ar/noticias/actualizacion-del-boletin-epidemiologico-nacional-de-la-semana-ndeg-28" target="_blank" rel="noopener">Boletín Epidemiológico Nacional — Vigilancia de intoxicaciones por CO</a>
+            </div>
+            <div class="fuente-card">
+                <span class="tipo">Caso real</span>
+                <a href="https://es.wikipedia.org/wiki/Explosi%C3%B3n_de_Rosario_de_2013" target="_blank" rel="noopener">Explosión de Rosario de 2013 (Salta 2141) — 22 fallecidos</a>
+            </div>
+            <div class="fuente-card">
+                <span class="tipo">Caso real</span>
+                <a href="https://www.lanacion.com.ar/seguridad/fuga-de-gas-explosion-y-muerte-un-adulto-mayor-fallecio-y-tres-personas-resultaron-gravemente-nid23022025/" target="_blank" rel="noopener">La Nación — Explosión en Boulogne, febrero de 2025</a>
+            </div>
+            <div class="fuente-card">
+                <span class="tipo">Caso real</span>
+                <a href="http://www.diariolaopinion.com.ar/policiales/terrible-tragedia-en-villa-devoto-cinco-personas-de-una-misma-familia-murieron-por-un-escape-de-gas.htm" target="_blank" rel="noopener">Clarín / Noticias Argentinas — Tragedia en Villa Devoto, julio de 2025</a>
+            </div>
+            <div class="fuente-card">
+                <span class="tipo">Caso real</span>
+                <a href="https://www.pilaradiario.com/policiales/les-instalaron-una-cocina-y-exploto-madre-e-hija-murieron-y-el-padre-esta-grave-n5453613" target="_blank" rel="noopener">El Diario de Pilar — Explosión por cocina con fuga, mayo de 2024</a>
+            </div>
+        </div>
     </div>
 </footer>
 
